@@ -1,10 +1,10 @@
 class Screen(title: String,
-             itemList: MutableList<Any>) {
+             itemList: MutableList<Pair<String, () -> Unit>>) {
 
     private val title: String = title
     private val itemList = itemList.toMutableList()
     init {
-        this.itemList.add("Выход")
+        this.itemList.add( Pair("Выход", {} ) )
     }
 
     private val inputValidationRegex: Regex = Regex("[0-9]|[1-9][0-9]+")
@@ -17,7 +17,7 @@ class Screen(title: String,
 
         for (item in this.itemList) {
             ++itemNumber
-            println("$itemNumber. $item")
+            println("$itemNumber. ${item.first}")
         }
     }
 
@@ -27,9 +27,8 @@ class Screen(title: String,
         } else {
             when (command.toInt()) {
                 this.itemList.size -> return true
-                else -> println(itemList[command.toInt() - 1])
+                else -> itemList[command.toInt() - 1].second()
             }
-
         }
         return false
     }
