@@ -1,15 +1,20 @@
-data class Archive (
-    private val name: String,
+data class Archive(
+    val name: String,
     private val notes: MutableList<Note>
 ) {
+    private val firstMenuCommand: String = "Создать заметку"
 
-    fun getArchiveMenu(): MutableList<Pair<String, () -> Unit >> {
-        val result: MutableList<Pair<String, () -> Unit >> = ArrayList()
+    fun getArchiveMenu(): MutableList<Pair<String, () -> Unit>> {
+        val result: MutableList<Pair<String, () -> Unit>> = ArrayList()
 
-        result.add(Pair("Создать архив", {println("Вызвана команда Создать архив")}))
+        result.add(
+            Pair(
+                this.firstMenuCommand,
+                { println("Вызвана команда ${this.firstMenuCommand}") })
+        )
 
-        for (note in notes) {
-            result.add(Pair(note.name, {println("Открыта заметка ${note.name}")}))
+        for (note in this.notes) {
+            result.add(Pair(note.name, { println("Открыта заметка ${note.name}") }))
         }
         return result
     }
