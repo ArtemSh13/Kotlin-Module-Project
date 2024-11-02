@@ -1,8 +1,6 @@
-class Screen(title: String,
-             itemList: MutableList<Pair<String, () -> Unit>>) {
+class Screen(private val title: String,
+             private val itemList: MutableList<Pair<String, () -> Unit>>) {
 
-    private val title: String = title
-    private val itemList = itemList.toMutableList()
     init {
         this.itemList.add( Pair("Выход", {} ) )
     }
