@@ -51,4 +51,10 @@ data class Archive(
         }
         return result
     }
+
+    fun printArchive() {
+        val screen = Screen("Архив \"${this.name}\"", this.getArchiveMenu())
+        screen.printScreen()
+        screen.startSession()
+    }
 }

@@ -36,7 +36,7 @@ class Storage(
         )
 
         for (archive in this.archives) {
-            result.add(Pair(archive.name, { println("Открыт архив ${archive.name}") }))
+            result.add(Pair(archive.name, { archive.printArchive() }))
         }
         return result
     }
