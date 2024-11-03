@@ -14,7 +14,7 @@ class Storage(
 
     private fun addArchive(archive: Archive) {
         this.archives.add(archive)
-        println("Архив \"${archive.name}\" успешно создан")
+        println("~ Архив \"${archive.name}\" успешно создан ~")
     }
 
     override fun getMenu(): MutableList<Pair<String, () -> Unit>> {
@@ -27,7 +27,7 @@ class Storage(
         )
 
         for (archive in this.archives) {
-            result.add(Pair(archive.name, { archive.printArchive() }))
+            result.add(Pair("Открыть архив \"${archive.name}\"", { archive.printArchive() }))
         }
         return result
     }

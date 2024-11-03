@@ -19,7 +19,7 @@ class Archive(
 
     fun addNote(note: Note) {
         this.notes.add(note)
-        println("Заметка \"${note.name}\" добавлена в архив \"${this.name}\"")
+        println("~ Заметка \"${note.name}\" добавлена в архив \"${this.name}\" ~")
     }
 
     override fun getMenu(): MutableList<Pair<String, () -> Unit>> {
@@ -38,7 +38,7 @@ class Archive(
     }
 
     fun printArchive() {
-        val screen = Screen("Архив \"${this.name}\"", this)
+        val screen = Screen("==> Архив \"${this.name}\"", this)
         screen.startSession()
     }
 }

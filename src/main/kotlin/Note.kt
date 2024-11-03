@@ -5,7 +5,7 @@ data class Note(
     private val divider: String = "==========Конец заметки==========\n"
 
     fun printNote() {
-        println("Заметка \"${this.name}\" : ")
+        println("===> Заметка \"${this.name}\" : ")
         println(this.content)
         println(this.divider)
     }
