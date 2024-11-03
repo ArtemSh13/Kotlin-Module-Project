@@ -1,10 +1,10 @@
-class Storage (
+class Storage(
     private val name: String,
     private val archives: MutableList<Archive>
 ) : Menu {
     private val firstMenuCommand: String = "Создать архив"
 
-    private fun createArchive() : Archive {
+    private fun createArchive(): Archive {
         val name: String = InputProcessor.readUntilNotEmptyInput(
             welcomePhrase = "Введите название архива: > ",
             errorMessage = "Ошибка. Название архива не может быть пустой строкой"

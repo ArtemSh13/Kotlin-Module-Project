@@ -1,10 +1,10 @@
-class Archive (
+class Archive(
     val name: String,
     private val notes: MutableList<Note>
 ) : Menu {
     private val firstMenuCommand: String = "Создать заметку"
 
-    private fun createNote() : Note {
+    private fun createNote(): Note {
         val name: String = InputProcessor.readUntilNotEmptyInput(
             welcomePhrase = "Введите название заметки: > ",
             errorMessage = "Ошибка. Название заметки не может быть пустой строкой"
@@ -32,7 +32,7 @@ class Archive (
         )
 
         for (note in this.notes) {
-            result.add(Pair("Открыть заметку \"${note.name}\"", { note.printNote() } ))
+            result.add(Pair("Открыть заметку \"${note.name}\"", { note.printNote() }))
         }
         return result
     }

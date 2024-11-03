@@ -1,3 +1,3 @@
 interface Menu {
-    fun getMenu() : MutableList<Pair<String, () -> Unit>>
+    fun getMenu(): MutableList<Pair<String, () -> Unit>>
 }
