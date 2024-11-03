@@ -10,7 +10,7 @@ class Screen(
     }
 
     private val commandValidationRegex: Regex = Regex("[0-9]|[1-9][0-9]+")
-    private val invalidInputMessage: String = "Ошибка"
+    private val invalidCommandMessage: String = "Ошибка. Введите номер пункта меню"
 
     private fun isCommandValid(command: String) : Boolean {
         return (command.matches(this.commandValidationRegex)
@@ -37,7 +37,7 @@ class Screen(
 
     private fun handleCommand(command: String): Boolean {
         if (!this.isCommandValid(command)) {
-            println(this.invalidInputMessage)
+            println(this.invalidCommandMessage)
         } else {
             when (command.toInt()) {
                 this.itemList.size -> return true
