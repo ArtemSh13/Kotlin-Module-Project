@@ -9,8 +9,14 @@ class Screen(
         this.updateItemList()
     }
 
-    private val inputValidationRegex: Regex = Regex("[0-9]|[1-9][0-9]+")
+    private val commandValidationRegex: Regex = Regex("[0-9]|[1-9][0-9]+")
     private val invalidInputMessage: String = "Ошибка"
+
+    private fun isCommandValid(command: String) : Boolean {
+        return (command.matches(this.commandValidationRegex)
+                && command.toInt() >= 1
+                && command.toInt() <= this.itemList.size)
+    }
 
     private fun updateItemList() {
         this.itemList = this.menu.getMenu()
@@ -30,7 +36,7 @@ class Screen(
     }
 
     private fun handleCommand(command: String): Boolean {
-        if (!command.matches(this.inputValidationRegex)) {
+        if (!this.isCommandValid(command)) {
             println(this.invalidInputMessage)
         } else {
             when (command.toInt()) {
