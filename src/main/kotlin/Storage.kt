@@ -1,5 +1,4 @@
 class Storage(
-    private val name: String,
     private val archives: MutableList<Archive>
 ) : Menu {
     private val firstMenuCommand: String = "Создать архив"
