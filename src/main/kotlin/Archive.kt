@@ -17,7 +17,7 @@ class Archive(
         return Note(name, content)
     }
 
-    fun addNote(note: Note) {
+    private fun addNote(note: Note) {
         this.notes.add(note)
         println("~ Заметка \"${note.name}\" добавлена в архив \"${this.name}\" ~")
     }
