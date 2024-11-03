@@ -1,17 +1,27 @@
-class Screen(private val title: String,
-             private val itemList: MutableList<Pair<String, () -> Unit>>) {
+class Screen(
+    private val title: String,
+    private val menu: Menu
+) {
+
+    private var itemList: MutableList<Pair<String, () -> Unit>> = ArrayList()
 
     init {
-        this.itemList.add( Pair("Выход", {} ) )
+        this.updateItemList()
     }
 
     private val inputValidationRegex: Regex = Regex("[0-9]|[1-9][0-9]+")
     private val invalidInputMessage: String = "Ошибка"
 
-    fun printScreen() {
+    private fun updateItemList() {
+        this.itemList = this.menu.getMenu()
+        this.itemList.add(Pair("Выход", {}))
+    }
+
+    private fun printScreen() {
         println(this.title)
 
         var itemNumber: Int = 0
+        this.updateItemList()
 
         for (item in this.itemList) {
             ++itemNumber
@@ -19,7 +29,7 @@ class Screen(private val title: String,
         }
     }
 
-    private fun handleCommand(command: String) : Boolean {
+    private fun handleCommand(command: String): Boolean {
         if (!command.matches(this.inputValidationRegex)) {
             println(this.invalidInputMessage)
         } else {
@@ -33,11 +43,11 @@ class Screen(private val title: String,
 
     fun startSession() {
         var isExitEntered = false
-        println()
         while (!isExitEntered) {
+            this.printScreen()
+            println()
             print("> ")
-            val userInput: String = readln()
-            isExitEntered = this.handleCommand(userInput)
+            isExitEntered = this.handleCommand(readln())
         }
     }
 }
