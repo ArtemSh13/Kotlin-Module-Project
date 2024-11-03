@@ -1,7 +1,7 @@
-class Storage(
+class Storage (
     private val name: String,
     private val archives: MutableList<Archive>
-) {
+) : Menu {
     private val firstMenuCommand: String = "Создать архив"
 
     private fun createArchive() : Archive {
@@ -26,7 +26,7 @@ class Storage(
         println("Архив \"${archive.name}\" успешно создан")
     }
 
-    fun getStorageMenu(): MutableList<Pair<String, () -> Unit>> {
+    override fun getMenu(): MutableList<Pair<String, () -> Unit>> {
         val result: MutableList<Pair<String, () -> Unit>> = ArrayList()
 
         result.add(
