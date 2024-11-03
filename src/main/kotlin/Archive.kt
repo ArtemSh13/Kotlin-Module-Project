@@ -1,3 +1,6 @@
+/**
+ * Archive is a class to store notes according to requirements of the Ya.Practicum exercise.
+ */
 class Archive(
     val name: String,
     private val notes: MutableList<Note>

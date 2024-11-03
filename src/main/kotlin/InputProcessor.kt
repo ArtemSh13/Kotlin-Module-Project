@@ -1,3 +1,6 @@
+/**
+ * InputProcessor is an object to separate user input checking from other logic and reuse code.
+ */
 object InputProcessor {
     fun readUntilNotEmptyInput(welcomePhrase: String, errorMessage: String): String {
         var input = ""

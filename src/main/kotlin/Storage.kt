@@ -1,3 +1,6 @@
+/**
+ * Storage is a class to store archives.
+ */
 class Storage(
     private val archives: MutableList<Archive>
 ) : Menu {

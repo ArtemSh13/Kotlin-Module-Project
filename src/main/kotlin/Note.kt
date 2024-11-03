@@ -1,3 +1,6 @@
+/**
+ * Note is a class to store text according to requirements of the Ya.Practicum exercise.
+ */
 data class Note(
     val name: String,
     val content: String

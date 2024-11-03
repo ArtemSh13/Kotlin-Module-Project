@@ -1,3 +1,6 @@
+/**
+ * Screen is a class to display the command list for any Menu implementer.
+ */
 class Screen(
     private val title: String,
     private val menu: Menu
@@ -18,6 +21,10 @@ class Screen(
                 && command.toInt() <= this.itemList.size)
     }
 
+    /**
+     * The updateItemList() method actualizes the item list.
+     * It's necessary e. g. when new note was added to an archive.
+     */
     private fun updateItemList() {
         this.itemList = this.menu.getMenu()
         this.itemList.add(Pair("Выход", {}))
@@ -35,6 +42,12 @@ class Screen(
         }
     }
 
+    /**
+     * The handleCommand() method processes a command.
+     * It returns true if the command is "Exit", else the command is executed
+     * and the method returns false.
+     * False is returned also if the command isn't valid.
+     */
     private fun handleCommand(command: String): Boolean {
         if (!this.isCommandValid(command)) {
             println(this.invalidCommandMessage)
@@ -47,6 +60,9 @@ class Screen(
         return false
     }
 
+    /**
+     * The startSession() method is a main cycle for user input.
+     */
     fun startSession() {
         var isExitEntered = false
         while (!isExitEntered) {
