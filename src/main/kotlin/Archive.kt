@@ -1,4 +1,4 @@
-data class Archive (
+class Archive (
     val name: String,
     private val notes: MutableList<Note>
 ) : Menu {
