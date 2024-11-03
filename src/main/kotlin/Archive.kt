@@ -5,29 +5,14 @@ data class Archive (
     private val firstMenuCommand: String = "Создать заметку"
 
     private fun createNote() : Note {
-        val nameInputError: String = "Ошибка. Название заметки не может быть пустой строкой"
-        val contentInputError: String = "Ошибка. Заметка не может быть пустой строкой"
-        var name: String = ""
-        var content: String = ""
-
-        while (true) {
-            print("Введите название заметки: > ")
-            name = readln()
-            if (name.isEmpty()) {
-                println(nameInputError)
-            } else {
-                break
-            }
-        }
-        while (true) {
-            println("Введите текст заметки:")
-            content = readln()
-            if (name.isEmpty()) {
-                println(contentInputError)
-            } else {
-                break
-            }
-        }
+        val name: String = InputProcessor.readUntilNotEmptyInput(
+            welcomePhrase = "Введите название заметки: > ",
+            errorMessage = "Ошибка. Название заметки не может быть пустой строкой"
+        )
+        val content: String = InputProcessor.readUntilNotEmptyInput(
+            welcomePhrase = "Введите текст заметки:\n",
+            errorMessage = "Ошибка. Заметка не может быть пустой строкой"
+        )
 
         return Note(name, content)
     }

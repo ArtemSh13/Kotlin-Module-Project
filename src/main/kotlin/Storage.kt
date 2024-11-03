@@ -5,19 +5,10 @@ class Storage (
     private val firstMenuCommand: String = "Создать архив"
 
     private fun createArchive() : Archive {
-        val nameInputError: String = "Ошибка. Название архива не может быть пустой строкой"
-        var name: String
-
-        while (true) {
-            print("Введите название архива: > ")
-            name = readln()
-            if (name.isEmpty()) {
-                println(nameInputError)
-            } else {
-                break
-            }
-        }
-
+        val name: String = InputProcessor.readUntilNotEmptyInput(
+            welcomePhrase = "Введите название архива: > ",
+            errorMessage = "Ошибка. Название архива не может быть пустой строкой"
+        )
         return Archive(name, ArrayList())
     }
 
