@@ -1,7 +1,7 @@
-data class Archive(
+data class Archive (
     val name: String,
     private val notes: MutableList<Note>
-) {
+) : Menu {
     private val firstMenuCommand: String = "Создать заметку"
 
     private fun createNote() : Note {
@@ -32,12 +32,12 @@ data class Archive(
         return Note(name, content)
     }
 
-    private fun addNote(note: Note) {
+    fun addNote(note: Note) {
         this.notes.add(note)
         println("Заметка \"${note.name}\" добавлена в архив \"${this.name}\"")
     }
 
-    fun getArchiveMenu(): MutableList<Pair<String, () -> Unit>> {
+    override fun getMenu(): MutableList<Pair<String, () -> Unit>> {
         val result: MutableList<Pair<String, () -> Unit>> = ArrayList()
 
         result.add(
@@ -53,8 +53,7 @@ data class Archive(
     }
 
     fun printArchive() {
-        val screen = Screen("Архив \"${this.name}\"", this.getArchiveMenu())
-        screen.printScreen()
+        val screen = Screen("Архив \"${this.name}\"", this)
         screen.startSession()
     }
 }
