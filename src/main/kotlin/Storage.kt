@@ -19,7 +19,7 @@ class Storage(
         println("~ Архив \"${archive.name}\" успешно создан ~")
     }
 
-    override fun getMenu(): MutableList<Pair<String, () -> Unit>> {
+    override fun getMenu(): List<Pair<String, () -> Unit>> {
         val result: MutableList<Pair<String, () -> Unit>> = ArrayList()
 
         result.add(

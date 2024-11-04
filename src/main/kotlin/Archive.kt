@@ -25,7 +25,7 @@ class Archive(
         println("~ Заметка \"${note.name}\" добавлена в архив \"${this.name}\" ~")
     }
 
-    override fun getMenu(): MutableList<Pair<String, () -> Unit>> {
+    override fun getMenu(): List<Pair<String, () -> Unit>> {
         val result: MutableList<Pair<String, () -> Unit>> = ArrayList()
 
         result.add(
