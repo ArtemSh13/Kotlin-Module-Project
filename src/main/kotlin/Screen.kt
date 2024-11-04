@@ -6,7 +6,7 @@ class Screen(
     private val menu: Menu
 ) {
 
-    private var itemList: MutableList<Pair<String, () -> Unit>> = ArrayList()
+    private var itemList: List<Pair<String, () -> Unit>> = ArrayList()
 
     init {
         this.updateItemList()
@@ -26,8 +26,9 @@ class Screen(
      * It's necessary e. g. when new note was added to an archive.
      */
     private fun updateItemList() {
-        this.itemList = this.menu.getMenu()
-        this.itemList.add(Pair("Выход", {}))
+        val tempList = this.menu.getMenu().toMutableList()
+        tempList.add(Pair("Выход", {}))
+        this.itemList = tempList.toList()
     }
 
     private fun printScreen() {
