@@ -7,7 +7,7 @@ object InputProcessor {
         while (true) {
             print(welcomePhrase)
             input = readln()
-            if (input.isEmpty()) {
+            if (input.isEmpty() || input.isBlank()) {
                 println(errorMessage)
             } else {
                 break
