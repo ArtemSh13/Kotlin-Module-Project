@@ -1,12 +1,7 @@
 import kotlin.collections.ArrayList
 
 fun main(args: Array<String>) {
-    val storage = Storage(
-        prepareTestData(
-            archiveCount = 2,
-            notesPerArchive = 2
-        )
-    )
+    val storage = Storage(ArrayList<Archive>())
 
     val mainScreen = Screen("=> Архивы", storage)
     mainScreen.startSession()
