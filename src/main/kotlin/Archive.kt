@@ -8,11 +8,11 @@ class Archive(
     private val firstMenuCommand: String = "Создать заметку"
 
     private fun createNote(): Note {
-        val name: String = InputProcessor.readUntilNotEmptyInput(
+        val name: String = readUntilNotEmptyInput(
             welcomePhrase = "Введите название заметки: > ",
             errorMessage = "Ошибка. Название заметки не может быть пустой строкой"
         )
-        val content: String = InputProcessor.readUntilNotEmptyInput(
+        val content: String = readUntilNotEmptyInput(
             welcomePhrase = "Введите текст заметки:\n",
             errorMessage = "Ошибка. Заметка не может быть пустой строкой"
         )

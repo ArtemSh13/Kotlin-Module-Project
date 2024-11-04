@@ -7,7 +7,7 @@ class Storage(
     private val firstMenuCommand: String = "Создать архив"
 
     private fun createArchive(): Archive {
-        val name: String = InputProcessor.readUntilNotEmptyInput(
+        val name: String = readUntilNotEmptyInput(
             welcomePhrase = "Введите название архива: > ",
             errorMessage = "Ошибка. Название архива не может быть пустой строкой"
         )
